@@ -428,4 +428,28 @@ public class AppUtil {
 		char c=(input.charAt(0)+"").toLowerCase().charAt(0);
 		return c+input.substring(1);
 	}
+	
+	
+	public static String toSentenceCase(String input) {
+		if(input==null) return "";
+		input=input.trim();
+	    StringBuilder titleCase = new StringBuilder();
+	    boolean nextTitleCase = true;
+	    boolean isDot=false;
+	    for (char c : input.toCharArray()) {
+	        if (Character.isSpaceChar(c)) {
+	        	nextTitleCase = isDot;	
+	        } else if (c=='.') {
+	            nextTitleCase = isDot = true;
+	        } else if (nextTitleCase) {
+	            c = Character.toUpperCase(c);
+	            nextTitleCase = isDot = false;
+	        }else {
+	        	c=Character.toLowerCase(c);
+	        	isDot=false;
+	        }
+	        titleCase.append(c);
+	    }
+	    return titleCase.toString();
+	}
 }
