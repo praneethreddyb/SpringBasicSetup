@@ -385,4 +385,47 @@ public class AppUtil {
 		if(len == null || len.length == 0)len = new int[] {1000};
 		return s == null ? null : (s.length() <= len[0] ? s : s.substring(0, len[0]));
 	}
+	
+	/**
+	 * Converts the given input string to TitleCase, which is to remove underscores and replace it with spaces
+	 * 	and Capitalize the first letter of all words.
+	 *
+	 * @param input
+	 * @return String, Title case of the given input
+	 * @since 2018-07-20
+	 */
+	public static String titleCase(String input) {
+		if(input==null) return null;
+		if(input.trim().equals("")) return "";
+		input=input.replace("_", " ").toLowerCase();
+		String result = "";
+        char firstChar = input.charAt(0);
+        result = result + Character.toUpperCase(firstChar);
+        for (int i = 1; i < input.length(); i++) {
+            char currentChar = input.charAt(i);
+            char previousChar = input.charAt(i - 1);
+            if (previousChar == ' ') {
+                result = result + Character.toUpperCase(currentChar);
+            } else {
+                result = result + currentChar;
+            }
+        }
+		return result;
+	}
+	
+	/**
+	 * Converts the given String to pascalCase
+	 * 
+	 * @param input
+	 * @return String, Pascal case of the given input
+	 * @since 2018-07-20
+	 */
+	public static String pascalCase(String input) {
+		if(input==null) return null;
+		if(input.trim().equals("")) return "";
+		input=titleCase(input);
+		input=input.replaceAll("\\s+", "");
+		char c=(input.charAt(0)+"").toLowerCase().charAt(0);
+		return c+input.substring(1);
+	}
 }
