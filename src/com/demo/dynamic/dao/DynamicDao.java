@@ -2,16 +2,13 @@ package com.demo.dynamic.dao;
 
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import com.demo.dao.common.DaoCommon;
 
 @Repository(value="dynamicDao")
-public class DynamicDao {
+public class DynamicDao extends DaoCommon{
 
 	
-	@Autowired JdbcTemplate jdbcTemplate;
 
 	public String getUserById(int id) {
 		try {
