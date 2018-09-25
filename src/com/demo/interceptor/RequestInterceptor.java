@@ -12,13 +12,9 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class RequestInterceptor extends HandlerInterceptorAdapter {
 
-	
-
-
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-
 		return true;
 	}
 
