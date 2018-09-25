@@ -452,4 +452,9 @@ public class AppUtil {
 	    }
 	    return titleCase.toString();
 	}
+	
+	
+	public static void main(String[] args) {
+		System.out.println(toSentenceCase("praneeth kumar reddy"));
+	}
 }
