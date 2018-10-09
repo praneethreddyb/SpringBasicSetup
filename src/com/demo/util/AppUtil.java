@@ -13,6 +13,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
@@ -495,6 +496,26 @@ public class AppUtil {
         }
         return String.format("%." + digits + "f", bytes) + " " + dictionary[index];
     }
+    
+	/**
+	 * This method takes String as input and gives UTC formatted date in return
+	 * 
+	 * @param date
+	 * @return UTC formatted date
+	 * @throws Exception when the given input String is in not parsable to UTC date then it will through exception
+	 * @author Jagadeesh.T
+	 * @since 2018-07-20 
+	 */
+	public static Date getDateFromUtcString(String date)throws Exception {
+		if(date==null) return null;
+		try {
+			return Date.from(Instant.parse(date));
+		}catch (Exception e) {
+			throw new Exception("Unable to parse given utc Date ... : "+date);
+		}
+	}
+    
+    
 	public static void main(String[] args) {
 		System.out.println(toSentenceCase("praneeth kumar reddy"));
 	}
