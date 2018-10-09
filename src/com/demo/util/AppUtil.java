@@ -454,6 +454,47 @@ public class AppUtil {
 	}
 	
 	
+	/**
+	 * Creates a file if it does not exists in the given directory
+	 * 
+	 * @param path
+	 * @return File
+	 * @throws Exception
+	 * @author Jagadeesh.T
+	 * @since 2018-07-20
+	 */
+	public static File saveFileIfNotExist(String path) throws Exception {
+		if (isBlank(path)) {
+			return null;
+		}
+		File file = new File(path);
+		if (!file.exists()) {
+			file.getParentFile().mkdirs();
+			file.createNewFile();
+		}
+		return file;
+	}
+	
+	/**
+     * Method to format bytes in human readable format
+     * 
+     * @param bytes
+     *            - the value in bytes
+     * @param digits
+     *            - number of decimals to be displayed
+     * @return human readable format string
+     */
+    public static String getFileSizeInReadable(double bytes, int digits) {
+        String[] dictionary = { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
+        int index = 0;
+        for (index = 0; index < dictionary.length; index++) {
+            if (bytes < 1024) {
+                break;
+            }
+            bytes = bytes / 1024;
+        }
+        return String.format("%." + digits + "f", bytes) + " " + dictionary[index];
+    }
 	public static void main(String[] args) {
 		System.out.println(toSentenceCase("praneeth kumar reddy"));
 	}
