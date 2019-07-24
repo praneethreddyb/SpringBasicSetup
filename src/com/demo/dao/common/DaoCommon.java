@@ -26,6 +26,7 @@ public class DaoCommon {
 	     return getGeneratedKey(jdbcTemplate,query, values);
 	}
 	
+	@SuppressWarnings("deprecation")
 	public static int getGeneratedKey(JdbcTemplate jdbcTemplate,final String query,final Object[] values)throws Exception {
 	     KeyHolder keyHolder = new GeneratedKeyHolder();
 	    	jdbcTemplate.update(new PreparedStatementCreator() {
