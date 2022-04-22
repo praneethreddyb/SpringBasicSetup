@@ -9,7 +9,7 @@
 	<name>SpringBasicSetup</name>
 	<properties>
 		<spring.redis.version>2.0.8.RELEASE</spring.redis.version>
-		<spring.version>5.0.7.RELEASE</spring.version>
+		<spring.version>5.3.19</spring.version>
 		<mysql.version>6.0.6</mysql.version>
 		<commons.dbcp.version>1.4</commons.dbcp.version>
 		<jackson.version>2.9.4</jackson.version>
